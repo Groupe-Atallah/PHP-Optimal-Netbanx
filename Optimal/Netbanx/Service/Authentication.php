@@ -16,57 +16,37 @@
 namespace Optimal\Netbanx\Service;
 
 /**
- * File:        Refund.php
+ * File:        Authentication.php
  * Project:     PHP-Optimal-Netbanx
  *
  * @author      Al-Fallouji Bashar
  * 
- * Refund service
+ * Authentication service
  */
-class Refund extends Base
+class Authentication extends Base
 {
     /**
-     * Definition of services exposed for Refund
-     * Refer to https://developer.optimalpayments.com/en/documentation/card-payments-api/api/ 
+     * Definition of services exposed for Authentication
+     * Refer to https://developer.optimalpayments.com/en/documentation/3d-secure-api/
      * @var array
      */
     protected $_services = array(
-        // Get a refund
-        'get' => array(
-            'method' => 'GET',
-            'url' => '/refunds/{ID}',
-            'params' => array(
-                'id'
-            ),
-        ),
-
-        // Cancel a refund
-        'cancel' => array(
-            'method' => 'PUT',
-            'url' => '/refunds/{ID}',
-            'params' => array(
-                'id',
-                'payload'
-            ),
-        ),
-
-        // Create a refund
+        // Create an authentication
         'create' => array(
             'method' => 'POST',
-            'url' => '/settlements/{ID}/refunds',
+            'url' => '/enrollmentchecks/{ID}/authentications',
             'params' => array(
                 'id',
                 'payload'
             ),
         ),
 
-        // Cancel a settlement
-        'cancelSettlement' => array(
-            'method' => 'PUT',
-            'url' => '/settlements/{ID}',
+        // Lookup an authentication
+        'get' => array(
+            'method' => 'GET',
+            'url' => '/authentications/{ID}',
             'params' => array(
                 'id',
-                'payload',
             ),
         ),
     );
